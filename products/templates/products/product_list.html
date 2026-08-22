@@ -11,6 +11,13 @@
 
             {% for product in products %}
             <article>
+                
+                {% with image=product.images.first %}
+                    {% if image %}
+                        <img src="{{ image.image.url }}" alt="{{ product.title }}">
+                    {% endif %}
+                {% endwith %}
+                    
                 <h2>
                     <a href="#"> {{ product.title }} </a>
                 </h2>
