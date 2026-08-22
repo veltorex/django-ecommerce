@@ -26,16 +26,16 @@ A simple e-commerce web application built with Django.
 
 ## Project Structure
 
-## Project Structure
-
     project/
-    ├── manage.py
-    ├── requirements.txt
-    ├── README.md
-    ├── LICENSE
-    ├── .gitignore
+    |---manage.py
+    |---requirements.txt
+    |---README.md
+    |---LICENSE
+    |---.gitignore
     │
-    └── config/
+    |---config/
+    |---products/
+    |---media/
 
 ## Installation
 
