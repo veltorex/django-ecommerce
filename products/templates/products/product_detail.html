@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Product Detail</title>
+    </head>
+    <body>
+        <main>
+            <article>
+                {% with image=product.images.first %} {% if image %}
+                <img src="{{ image.image.url }}" alt="{{ product.title }}" />
+                {% endif %} {% endwith %}
+                <h2>{{ product.title }}</h2>
+                <small>{{ product.price }}$</small>
+            </article>
+        </main>
+    </body>
+</html>
