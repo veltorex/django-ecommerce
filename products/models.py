@@ -12,5 +12,6 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def save(self, *args, **kwargs):
+        # create slug field
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
