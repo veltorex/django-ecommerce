@@ -82,3 +82,25 @@
 }
 
 
+/* =========================
+   Product Image
+   ========================= */
+
+.product-card__image {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    background: #f3f4f6;
+
+    transition: transform 0.3s ease;
+}
+
+.product-card__link:hover .product-card__image {
+    transform: scale(1.03);
+}
+
+
