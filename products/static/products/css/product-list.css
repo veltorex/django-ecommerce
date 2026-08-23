@@ -13,3 +13,42 @@
 }
 
 
+/* =========================
+   Page Title
+   ========================= */
+
+.product-list__title {
+    grid-column: 1 / -1;
+
+    margin: 0 0 8px;
+
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #111827;
+}
+
+
+/* =========================
+   Product Card Link
+   ========================= */
+
+.product-card__link {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.product-card__link:hover {
+    transform: translateY(-6px);
+}
+
+
