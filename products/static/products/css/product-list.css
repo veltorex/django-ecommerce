@@ -1,0 +1,15 @@
+/* =========================
+   Product List
+   ========================= */
+
+.product-list {
+    width: min(1200px, 100% - 40px);
+    margin: 0 auto;
+    padding: 48px 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+
