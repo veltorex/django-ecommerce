@@ -52,3 +52,33 @@
 }
 
 
+/* =========================
+   Product Card
+   ========================= */
+
+.product-card {
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.product-card__link:hover .product-card {
+    border-color: #d1d5db;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+
