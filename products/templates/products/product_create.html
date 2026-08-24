@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Product</title>
+    </head>
+    <body>
+        <main>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %} {{ form.as_p }} {{ formset.management_form }}
+
+                <div id="image-forms">
+                    {% for image_form in formset %}
+                    <div
+                        class="image-form"
+                        {% if not forloop.first %}hidden{% endif %}
+                    >
+                        {{ image_form.image }}
+
+                        <button type="button" class="delete-image">
+                            Delete
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button type="submit">Create Product</button>
+            </form>
+        </main>
+
+        <script src="{% static 'products/js/product_create.js' %}"></script>
+    </body>
+</html>

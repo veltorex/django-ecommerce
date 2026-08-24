@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
+from .forms import ProductImageFormSet, CreateProductForm
 
 # Create your views here.
 
@@ -24,4 +25,30 @@ def product_detail(request, pk):
         {
             "product": product,
         }
+    )
+    
+def product_create(request):
+    if request.method == "POST":
+        form = CreateProductForm(request.POST)
+        formset = ProductImageFormSet(request.POST, request.FILES)
+
+        if form.is_valid() and formset.is_valid():
+            product = form.save()
+
+            formset.instance = product
+            formset.save()
+
+            return redirect("product-list")
+
+    else:
+        form = CreateProductForm()
+        formset = ProductImageFormSet()
+
+    return render(
+        request,
+        "products/product_create.html",
+        {
+            "form": form,
+            "formset": formset,
+        },
     )
