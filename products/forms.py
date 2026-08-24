@@ -7,3 +7,8 @@ class CreateProductForm(forms.ModelForm):
         model = Product
         fields = ("title", "description", "price")
 
+
+class ProductImageForm(forms.ModelForm):
+    class Meta:
+        model = ProductImage
+        fields = ("image",)
