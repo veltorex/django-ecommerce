@@ -52,3 +52,13 @@ def product_create(request):
             "formset": formset,
         },
     )
+    
+def prodcut_delete(request, pk):
+    product = get_object_or_404(Product, pk=pk) # If the object doesn't exist, it returns an HTTP 404 error page.
+    
+    if request.method == "POST":
+        
+        product.delete()
+        return redirect("product-list")
+    
+    return render(request, "products/product_delete.html", {"product": product})
