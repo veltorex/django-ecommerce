@@ -62,3 +62,22 @@ def prodcut_delete(request, pk):
         return redirect("product-list")
     
     return render(request, "products/product_delete.html", {"product": product})
+
+def product_update(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    
+    if request.method == "POST":
+        form = CreateProductForm(request.POST, instance=product)  # Use the existing product instance
+        
+        if form.is_valid():
+            form.save()
+            return redirect("product-list")
+        
+    else:
+        form = CreateProductForm(instance=product)
+        
+    return render(
+        request,
+        "products/product_update.html",
+        {"form": form},
+    )
