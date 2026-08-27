@@ -1,36 +1,27 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Create Product</title>
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    </head>
-    <body>
-        <main>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %} {{ form.as_p }} {{ formset.management_form }}
+{% extends "base.html" %} 
+{% load static %} 
 
-                <div id="image-forms">
-                    {% for image_form in formset %}
-                    <div
-                        class="image-form"
-                        {% if not forloop.first %}hidden{% endif %}
-                    >
-                        {{ image_form.image }}
+{% block content %}
+<main>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }} {{ formset.management_form }}
 
-                        <button type="button" class="delete-image">
-                            Delete
-                        </button>
-                    </div>
-                    {% endfor %}
-                </div>
+        <div id="image-forms">
+            {% for image_form in formset %}
+            <div class="image-form" {% if not forloop.first %}hidden{% endif %}>
+                {{ image_form.image }}
 
-                <button type="submit">Create Product</button>
-            </form>
-        </main>
+                <button type="button" class="delete-image">Delete</button>
+            </div>
+            {% endfor %}
+        </div>
 
-        <script src="{% static 'products/js/product_create.js' %}"></script>
-    </body>
-</html>
+        <button type="submit">Create Product</button>
+    </form>
+</main>
+{% endblock content %} 
+
+
+{% block javascript %}
+<script src="{% static 'products/js/product_create.js' %}"></script>
+{% endblock javascript %}
