@@ -22,7 +22,9 @@
                 />
                 {% endif %} {% endwith %}
                 <h2 class="product__title">{{ product.title }}</h2>
-                <span class="product__price">{{ product.price }}$</span>
+                <div class="product__purchase">
+                    <span class="product__price">{{ product.price }}$</span>
+                </div>
                 <p class="product__description">{{ product.description }}</p>
             </article>
         </main>

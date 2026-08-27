@@ -18,3 +18,20 @@
 .product__title {
     margin: 32px 0 48px 16px;
 }
+
+/* Product Purchase */
+
+.product__purchase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: calc(100% - 8px);
+    height: 70px;
+    padding: 12px;
+    left: 4px;
+    bottom: 4px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-shadow: 0 -16px 16px 0 #00000030;
+}
