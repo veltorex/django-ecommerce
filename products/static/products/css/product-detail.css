@@ -13,3 +13,8 @@
     border-radius: 12px;
 }
 
+/* Product Title */
+
+.product__title {
+    margin: 32px 0 48px 16px;
+}

@@ -6,7 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Product Detail</title>
         <link rel="stylesheet" href="{% static 'products/css/base.css' %}" />
-        <link rel="stylesheet" href="{% static 'products/css/product-detail.css' %}" />
+        <link
+            rel="stylesheet"
+            href="{% static 'products/css/product-detail.css' %}"
+        />
     </head>
     <body>
         <main>
@@ -19,10 +22,8 @@
                 />
                 {% endif %} {% endwith %}
                 <h2 class="product__title">{{ product.title }}</h2>
-                <small class="product__price">{{ product.price }}$</small>
-                <p class="product__description">
-                    {{ product.description }}
-                </p>
+                <span class="product__price">{{ product.price }}$</span>
+                <p class="product__description">{{ product.description }}</p>
             </article>
         </main>
     </body>
