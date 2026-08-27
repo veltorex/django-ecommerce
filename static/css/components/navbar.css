@@ -68,3 +68,10 @@
     background: #1d4ed8;
     transform: translateY(-1px);
 }
+
+/* Brand */
+
+.navbar__brand {
+    font-size: 32px;
+    font-weight: bold;
+}
