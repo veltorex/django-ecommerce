@@ -1,43 +1,36 @@
+{% extends "base.html" %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-        <link
-            rel="stylesheet"
-            href="{% static 'products/css/product-list.css' %}"
-        />
-        <title>Products</title>
-    </head>
-    <body>
-        <main class="product-list">
-            <h1 class="product-list__title">Products</h1>
-            {% for product in products %}
-            <a
-                href="{% url 'product-detail' product.id %}"
-                class="product-card__link"
-            >
-                <article class="product-card">
-                    {% with image=product.images.first %} {% if image %}
-                    <img
-                        src="{{ image.image.url }}"
-                        alt="{{ product.title }}"
-                        class="product-card__image"
-                    />
-                    {% endif %} {% endwith %}
 
-                    <div class="product-card__detail">
-                        <h2>{{ product.title }}</h2>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product-list.css' %}">
+{% endblock extra_css %}
 
-                        <small class="product-card__price"
-                            >{{ product.price }}$</small
-                        >
-                    </div>
-                </article>
-            </a>
-            {% endfor %}
-        </main>
-    </body>
-</html>
+{% block content %}
+<main class="product-list">
+    <h1 class="product-list__title">Products</h1>
+    {% for product in products %}
+    <a
+        href="{% url 'product-detail' product.id %}"
+        class="product-card__link"
+    >
+        <article class="product-card">
+            {% with image=product.images.first %} {% if image %}
+            <img
+                src="{{ image.image.url }}"
+                alt="{{ product.title }}"
+                class="product-card__image"
+            />
+            {% endif %} {% endwith %}
+
+            <div class="product-card__detail">
+                <h2>{{ product.title }}</h2>
+
+                <small class="product-card__price"
+                    >{{ product.price }}$</small
+                >
+            </div>
+        </article>
+    </a>
+    {% endfor %}
+</main>
+{% endblock content %}
