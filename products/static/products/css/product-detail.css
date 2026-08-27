@@ -3,7 +3,6 @@
 .product {
     margin: 0 auto;
     padding: 8px;
-    background: rgba(0, 0, 0, 0.15);
 }
 
 /* Product Image */
@@ -34,4 +33,12 @@
     border: 1px solid gray;
     border-radius: 8px;
     box-shadow: 0 -16px 16px 0 #00000030;
+}
+
+/* Product Price*/
+
+.product__price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 12px;
 }
