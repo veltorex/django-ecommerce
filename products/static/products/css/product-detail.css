@@ -42,3 +42,10 @@
     font-weight: bold;
     margin-left: 12px;
 }
+
+/* Product Description */
+
+.product__description {
+    padding: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
