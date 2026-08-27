@@ -5,17 +5,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Product Detail</title>
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="stylesheet" href="{% static 'css/product-detail.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/product-detail.css' %}" />
     </head>
     <body>
         <main>
-            <article>
+            <article class="product">
                 {% with image=product.images.first %} {% if image %}
-                <img src="{{ image.image.url }}" alt="{{ product.title }}" />
+                <img
+                    src="{{ image.image.url }}"
+                    alt="{{ product.title }}"
+                    class="product__image"
+                />
                 {% endif %} {% endwith %}
-                <h2>{{ product.title }}</h2>
-                <small>{{ product.price }}$</small>
+                <h2 class="product__title">{{ product.title }}</h2>
+                <small class="product__price">{{ product.price }}$</small>
             </article>
         </main>
     </body>
