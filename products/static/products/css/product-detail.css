@@ -1,0 +1,15 @@
+/* Product */
+
+.product {
+    margin: 0 auto;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+
+.product__image {
+    width: 100%;
+    border-radius: 12px;
+}
+
