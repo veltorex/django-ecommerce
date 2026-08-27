@@ -1,28 +1,22 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Product</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
-<body>
-    <main>
-        <form 
-            method="post" 
-            action="{% url 'product-delete' product.pk %}"
-            onsubmit="return confirm('Are you sure you want to delete this product?')"    
-        >
-            {% csrf_token %}
-            <h2>
-                {{ product.title }}
-            </h2>
-            <p>
-                {{ product.description }}
-            </p>
-            <button type="submit">Delete</button>
-        </form>
-    </main>
-</body>
-</html>
+
+{% block content %}
+<main>
+    <form 
+        method="post" 
+        action="{% url 'product-delete' product.pk %}"
+        onsubmit="return confirm('Are you sure you want to delete this product?')"    
+    >
+        {% csrf_token %}
+        <h2>
+            {{ product.title }}
+        </h2>
+        <p>
+            {{ product.description }}
+        </p>
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+{% endblock content %}
