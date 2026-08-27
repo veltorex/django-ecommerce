@@ -5,15 +5,7 @@ A simple e-commerce web application built with Django.
 ## Features
 
 - Product management
-- Category management
 - Product image upload
-- Product search
-- Product filtering
-- Pagination
-- User authentication
-- User favorites
-- Shopping cart
-- Order management
 
 ## Technologies
 
@@ -36,6 +28,7 @@ A simple e-commerce web application built with Django.
     |---config/
     |---products/
     |---media/
+    |---static/
 
 ## Installation
 
@@ -123,6 +116,14 @@ A REST API may be added in the future using Django REST Framework. -->
 
 ## Future Improvements
 
+- Category management
+- Product search
+- Product filtering
+- Pagination
+- User authentication
+- User favorites
+- Shopping cart
+- Order management
 - Add Django REST Framework API
 - Add product reviews and ratings
 - Add order status tracking
