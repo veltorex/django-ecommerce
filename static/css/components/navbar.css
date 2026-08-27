@@ -75,3 +75,49 @@
     font-size: 32px;
     font-weight: bold;
 }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 8px;
+    }
+
+    .navbar__links {
+        gap: 4px;
+    }
+
+    .navbar__link {
+        padding: 9px 10px;
+        font-size: 14px;
+    }
+
+    .navbar__login {
+        margin-right: 4px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        top: 4px;
+        left: 4px;
+
+        width: calc(100% - 8px);
+        height: 56px;
+    }
+
+    .navbar__links {
+        gap: 2px;
+    }
+
+    .navbar__link {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .navbar__login {
+        padding: 8px 10px;
+    }
+}
