@@ -1,20 +1,14 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Product</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
-<body>
-    <main>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            
-            <button type="submit">Update</button>
-        </form>
-    </main>
-</body>
-</html>
+
+{% block content %}
+<main>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit">Update</button>
+    </form>
+</main>
+{% endblock content %}
+    
