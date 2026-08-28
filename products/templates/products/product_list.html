@@ -8,8 +8,17 @@
 {% block content %}
 <main class="product-list">
     <h1 class="product-list__title">Products</h1>
-    {% for product in products %}
-    {% include 'components/product-card.html' with product=product %}
-    {% endfor %}
+
+    <div class="product-list__layout">
+
+        <div class="product-list__grid">
+            {% for product in products %}
+                {% include 'components/product-card.html' with product=product %}
+            {% endfor %}
+        </div>
+
+        {% include 'components/filter-sidebar.html' %}
+
+    </div>
 </main>
 {% endblock content %}
