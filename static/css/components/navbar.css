@@ -21,6 +21,14 @@
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Actions */
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 /* Links */
 
 .navbar a {
@@ -51,7 +59,6 @@
 /* Login */
 
 .navbar__login {
-    margin-right: 12px;
     padding: 9px 16px;
 
     color: var(--color-surface) !important;
@@ -93,7 +100,6 @@
 
     width: 26px;
     height: 2px;
-    margin-bottom: 4px;
 
     border-radius: 2px;
 
@@ -120,17 +126,22 @@
     }
 
     .navbar__links {
-        gap: 4px;
+        display: none;
     }
 
-    .navbar__link {
-        padding: 9px 10px;
-        font-size: 14px;
+    .navbar__menu {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
     }
 
-    .navbar__login {
-        margin-right: 4px;
-        padding: 8px 12px;
+    .navbar__brand {
+        margin-right: auto;
+        margin-left: 8px;
+        font-size: 28px;
     }
 }
 
@@ -141,15 +152,6 @@
 
         width: calc(100% - 8px);
         height: 56px;
-    }
-
-    .navbar__links {
-        gap: 2px;
-    }
-
-    .navbar__link {
-        padding: 8px;
-        font-size: 13px;
     }
 
     .navbar__login {
