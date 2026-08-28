@@ -69,6 +69,41 @@
     transform: translateY(-1px);
 }
 
+/* Menu */
+
+.navbar__menu {
+    display: none;
+
+    width: 46px;
+    height: 46px;
+    padding: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--color-text);
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.navbar__menu span {
+    display: block;
+
+    width: 26px;
+    height: 2px;
+    margin-bottom: 4px;
+
+    border-radius: 2px;
+
+    background: var(--color-text);
+
+    transition: 
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
 /* Brand */
 
 .navbar__brand {
