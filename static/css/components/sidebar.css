@@ -20,3 +20,11 @@
 .sidebar--open {
     transform: translateX(0);
 }
+
+/* Sidebar Header */
+
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
