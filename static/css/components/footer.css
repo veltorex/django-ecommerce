@@ -27,3 +27,16 @@
 
     border-top: 1px solid #ffffff20;
 }
+
+/* Links */
+
+.footer a {
+    color: var(--color-footer-text);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--color-primary);
+}
