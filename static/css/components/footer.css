@@ -1,6 +1,16 @@
+/* Footer */
+
 .footer {
     padding: 48px 5% 20px;
 
     background: var(--color-footer);
     color: var(--color-surface);
+}
+
+/* Footer Main */
+
+.footer__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
 }
