@@ -46,3 +46,9 @@
 .sidebar__close:hover {
     background: var(--color-hover);
 }
+
+/* Sidebar Navigation */
+
+.sidebar__nav {
+    margin-top: 24px;
+}
