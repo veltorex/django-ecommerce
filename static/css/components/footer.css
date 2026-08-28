@@ -1,0 +1,6 @@
+.footer {
+    padding: 48px 5% 20px;
+
+    background: var(--color-footer);
+    color: var(--color-surface);
+}
