@@ -28,3 +28,21 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/* Sidebar Close Button */
+
+.sidebar__close {
+    padding: 16px;
+
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text);
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.sidebar__close:hover {
+    background: var(--color-hover);
+}
