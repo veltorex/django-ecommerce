@@ -1,7 +1,4 @@
-/* =========================
-   Product List
-   ========================= */
-
+/* Product List */
 .product-list {
     width: min(1200px, 100% - 40px);
     margin: 0 auto;
@@ -13,9 +10,7 @@
 }
 
 
-/* =========================
-   Page Title
-   ========================= */
+/* Page Title */
 
 .product-list__title {
     grid-column: 1 / -1;
@@ -29,128 +24,7 @@
     color: #111827;
 }
 
-
-/* =========================
-   Product Card Link
-   ========================= */
-
-.product-card__link {
-    display: block;
-
-    color: inherit;
-    text-decoration: none;
-
-    border-radius: 16px;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.product-card__link:hover {
-    transform: translateY(-6px);
-}
-
-
-/* =========================
-   Product Card
-   ========================= */
-
-.product-card {
-    height: 100%;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.product-card__link:hover .product-card {
-    border-color: #d1d5db;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-
-/* =========================
-   Product Image
-   ========================= */
-
-.product-card__image {
-    display: block;
-
-    width: 100%;
-    aspect-ratio: 1 / 1;
-
-    object-fit: cover;
-
-    background: #f3f4f6;
-
-    transition: transform 0.3s ease;
-}
-
-.product-card__link:hover .product-card__image {
-    transform: scale(1.03);
-}
-
-
-/* =========================
-   Product Details
-   ========================= */
-
-.product-card__detail {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    padding: 18px;
-}
-
-
-/* =========================
-   Product Title
-   ========================= */
-
-.product-card__title {
-    margin: 0;
-
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.4;
-
-    color: #111827;
-}
-
-
-/* =========================
-   Product Price
-   ========================= */
-
-.product-card__price {
-    margin-top: auto;
-
-    font-size: 1rem;
-    font-weight: 700;
-
-    color: #2563eb;
-}
-
-
-/* =========================
-   Responsive
-   ========================= */
+/* Responsive */
 
 @media (max-width: 600px) {
     .product-list {
@@ -159,22 +33,6 @@
 
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
-    }
-
-    .product-list__title {
-        font-size: 1.6rem;
-    }
-
-    .product-card__detail {
-        padding: 14px;
-    }
-
-    .product-card__title {
-        font-size: 0.95rem;
-    }
-
-    .product-card__price {
-        font-size: 0.9rem;
     }
 }
 
