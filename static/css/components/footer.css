@@ -48,3 +48,37 @@
     flex-direction: column;
     gap: 10px;
 }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .footer__main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer__section {
+        align-items: center;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .footer__legal {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer__bottom {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+}
