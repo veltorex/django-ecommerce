@@ -26,6 +26,7 @@ A simple e-commerce web application built with Django.
     |---LICENSE
     |---.gitignore
     │
+    |---.github/
     |---config/
     |---products/
     |---templates/
