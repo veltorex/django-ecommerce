@@ -23,6 +23,7 @@ A simple e-commerce web application built with Django.
     |---manage.py
     |---requirements.txt
     |---README.md
+    |---SECURITY.md
     |---LICENSE
     |---.gitignore
     │
