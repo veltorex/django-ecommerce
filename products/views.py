@@ -10,9 +10,13 @@ def product_list(request):
     
     # Filtering
     selected_category = request.GET.getlist("category")
+    min_price = request.GET.get("min_price")
+    max_price = request.GET.get("max_price")
     
     if selected_category:
         products = products.filter(category_id__in=selected_category)
+    if min_price and max_price:
+        products = products.filter(price__gt=min_price, price__lt=max_price)
 
     return render(
         request,
@@ -21,6 +25,8 @@ def product_list(request):
             "products": products,
             "categories": categories,
             "selected_category": selected_category,
+            "min_price": min_price,
+            "max_price": max_price,
         }
     )
     
