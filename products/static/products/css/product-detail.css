@@ -49,3 +49,14 @@
     padding: 12px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Product Meta */
+
+.product__meta {
+    background: var(--color-light-gray);
+    padding: 4px;
+
+    border-radius: 8px;
+
+    font-size: small;
+}
