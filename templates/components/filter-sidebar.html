@@ -10,7 +10,12 @@
 
             {% for category in categories %}
             <label>
-                <input type="checkbox" name="category" value="{{ category.id }}">
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="{{ category.id }}"
+                    {% if category.id|stringformat:"s" in selected_category %}checked{% endif %}
+                >
                 {{ category.name }}
             </label>
             {% endfor %}
