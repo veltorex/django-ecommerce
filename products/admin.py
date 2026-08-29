@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, ProductImage
+from .models import Product, ProductImage, Category
 
 
 # Add product image form to product form
@@ -23,3 +23,6 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ("-created_at",)
     
     inlines = [ProductImageInline]
+
+# Register category model
+admin.site.register(Category)
