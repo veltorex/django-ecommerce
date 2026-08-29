@@ -1,21 +1,46 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product
+from .models import Product, Category
 from .forms import ProductImageFormSet, CreateProductForm
 
 # Create your views here.
 
 def product_list(request):
     products  = Product.objects.all()
+    categories = Category.objects.all()
     
+    # Filtering
+    selected_category = request.GET.getlist("category")
+    
+    min_price = request.GET.get("min_price")
+    max_price = request.GET.get("max_price")
+    
+    sort_by = request.GET.get("sort")
+    
+    if selected_category:
+        products = products.filter(category_id__in=selected_category)
+    if min_price and max_price:
+        products = products.filter(price__gte=min_price, price__lte=max_price)
+    if sort_by == "price-low":
+        products = products.order_by("price")
+    elif sort_by == "price-high":
+        products = products.order_by("-price")
+    elif sort_by == "newest": 
+        products = products.order_by("-created_at")
+
     return render(
         request,
         "products/product_list.html",
         {
             "products": products,
+            "categories": categories,
+            "selected_category": selected_category,
+            "min_price": min_price,
+            "max_price": max_price,
+            "sort_by": sort_by,
         }
     )
     
-    
+
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     

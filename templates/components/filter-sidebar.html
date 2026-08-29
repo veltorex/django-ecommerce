@@ -8,20 +8,17 @@
         <section class="filter-sidebar__section">
             <h3>Category</h3>
 
+            {% for category in categories %}
             <label>
-                <input type="checkbox" name="category" value="electronics">
-                Electronics
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="{{ category.id }}"
+                    {% if category.id|stringformat:"s" in selected_category %}checked{% endif %}
+                >
+                {{ category.name }}
             </label>
-
-            <label>
-                <input type="checkbox" name="category" value="clothing">
-                Clothing
-            </label>
-
-            <label>
-                <input type="checkbox" name="category" value="books">
-                Books
-            </label>
+            {% endfor %}
         </section>
 
         <section class="filter-sidebar__section">
@@ -32,12 +29,14 @@
                     type="number"
                     name="min_price"
                     placeholder="Min"
+                    value="{{ min_price }}"
                 >
 
                 <input
                     type="number"
                     name="max_price"
                     placeholder="Max"
+                    value="{{ max_price }}"
                 >
             </div>
         </section>
@@ -47,9 +46,11 @@
 
             <select name="sort">
                 <option value="">Default</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="newest">Newest</option>
+                <option value="price-low" {% if sort_by == "price-low" %}selected{% endif %}>
+                    Price: Low to High
+                </option>
+                <option value="price-high" {% if sort_by == "price-high" %}selected{% endif %}>Price: High to Low</option>
+                <option value="newest" {% if sort_by == "newest" %}selected{% endif %}>Newest</option>
             </select>
         </section>
 
@@ -57,7 +58,7 @@
             <button type="submit" class="filter-sidebar__apply">
                 Apply Filters
             </button>
-            <button type="button" class="filter-sidebar__clear">
+            <button type="button" class="filter-sidebar__clear" onclick="location.href='{% url 'product-list' %}'">
                 Clear
             </button>
         </div>
