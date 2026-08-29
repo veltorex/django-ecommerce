@@ -8,20 +8,12 @@
         <section class="filter-sidebar__section">
             <h3>Category</h3>
 
+            {% for category in categories %}
             <label>
-                <input type="checkbox" name="category" value="electronics">
-                Electronics
+                <input type="checkbox" name="category" value="{{ category.id }}">
+                {{ category.name }}
             </label>
-
-            <label>
-                <input type="checkbox" name="category" value="clothing">
-                Clothing
-            </label>
-
-            <label>
-                <input type="checkbox" name="category" value="books">
-                Books
-            </label>
+            {% endfor %}
         </section>
 
         <section class="filter-sidebar__section">
