@@ -8,29 +8,17 @@
 {% block content %}
 <main class="product-list">
     <h1 class="product-list__title">Products</h1>
-    {% for product in products %}
-    <a
-        href="{% url 'product-detail' product.id %}"
-        class="product-card__link"
-    >
-        <article class="product-card">
-            {% with image=product.images.first %} {% if image %}
-            <img
-                src="{{ image.image.url }}"
-                alt="{{ product.title }}"
-                class="product-card__image"
-            />
-            {% endif %} {% endwith %}
 
-            <div class="product-card__detail">
-                <h2>{{ product.title }}</h2>
+    <div class="product-list__layout">
 
-                <small class="product-card__price"
-                    >{{ product.price }}$</small
-                >
-            </div>
-        </article>
-    </a>
-    {% endfor %}
+        <div class="product-list__grid">
+            {% for product in products %}
+                {% include 'components/product-card.html' with product=product %}
+            {% endfor %}
+        </div>
+
+        {% include 'components/filter-sidebar.html' %}
+
+    </div>
 </main>
 {% endblock content %}

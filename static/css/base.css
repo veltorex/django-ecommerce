@@ -1,3 +1,17 @@
+:root {
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-primary: #2563eb;
+    --color-danger: #dd0000;
+    --color-text: #0f172a;
+    --color-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-gray-border: #aaaaaa;
+    --color-hover: #bbbbbb;
+    --color-footer: #0f172a;
+    --color-footer-text: #cbd5e1;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,8 +21,8 @@ html {
 }
 
 body {
+    padding-top: 90px;
     margin: 0;
-
-    background: #f9fafb;
-    color: #111827;
+    background: var(--color-background);
+    color: var(--color-text);
 }

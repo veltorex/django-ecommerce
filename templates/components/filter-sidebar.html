@@ -1,0 +1,65 @@
+<aside class="filter-sidebar">
+    <div class="filter-sidebar__header">
+        <h2>Filters</h2>
+    </div>
+
+    <form class="filter-sidebar__form" method="get">
+
+        <section class="filter-sidebar__section">
+            <h3>Category</h3>
+
+            <label>
+                <input type="checkbox" name="category" value="electronics">
+                Electronics
+            </label>
+
+            <label>
+                <input type="checkbox" name="category" value="clothing">
+                Clothing
+            </label>
+
+            <label>
+                <input type="checkbox" name="category" value="books">
+                Books
+            </label>
+        </section>
+
+        <section class="filter-sidebar__section">
+            <h3>Price</h3>
+
+            <div class="filter-sidebar__price">
+                <input
+                    type="number"
+                    name="min_price"
+                    placeholder="Min"
+                >
+
+                <input
+                    type="number"
+                    name="max_price"
+                    placeholder="Max"
+                >
+            </div>
+        </section>
+
+        <section class="filter-sidebar__section">
+            <h3>Sort By</h3>
+
+            <select name="sort">
+                <option value="">Default</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest</option>
+            </select>
+        </section>
+
+        <div class="filter-sidebar__actions">
+            <button type="submit" class="filter-sidebar__apply">
+                Apply Filters
+            </button>
+            <button type="button" class="filter-sidebar__clear">
+                Clear
+            </button>
+        </div>
+    </form>
+</aside>

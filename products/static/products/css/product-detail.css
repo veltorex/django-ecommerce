@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
     width: calc(100% - 8px);
     height: 70px;
     padding: 12px;

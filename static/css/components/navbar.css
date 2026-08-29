@@ -1,0 +1,160 @@
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 4px;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: calc(100% - 8px);
+    height: 70px;
+    padding: 12px;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Actions */
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Links */
+
+.navbar a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar__link {
+    padding: 10px 14px;
+    border-radius: 8px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.navbar__link:hover {
+    color: var(--color-primary);
+    background: var(--color-hover);
+}
+
+/* Login */
+
+.navbar__login {
+    padding: 9px 16px;
+
+    color: var(--color-surface) !important;
+    background: var(--color-primary);
+
+    border-radius: 8px;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navbar__login:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* Menu */
+
+.navbar__menu {
+    display: none;
+
+    width: 46px;
+    height: 46px;
+    padding: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--color-text);
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.navbar__menu span {
+    display: block;
+
+    width: 26px;
+    height: 2px;
+
+    border-radius: 2px;
+
+    background: var(--color-text);
+
+    transition: 
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* Brand */
+
+.navbar__brand {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 8px;
+    }
+
+    .navbar__links {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .navbar__brand {
+        margin-right: auto;
+        margin-left: 8px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        top: 4px;
+        left: 4px;
+
+        width: calc(100% - 8px);
+        height: 56px;
+    }
+
+    .navbar__login {
+        padding: 8px 10px;
+    }
+}
