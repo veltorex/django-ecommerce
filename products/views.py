@@ -1,21 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product
+from .models import Product, Category
 from .forms import ProductImageFormSet, CreateProductForm
 
 # Create your views here.
 
 def product_list(request):
     products  = Product.objects.all()
-    
+    categories = Category.objects.all()
+
     return render(
         request,
         "products/product_list.html",
         {
             "products": products,
+            "categories": categories,
         }
     )
     
-    
+
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     
