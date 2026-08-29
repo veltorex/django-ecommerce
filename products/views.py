@@ -7,6 +7,12 @@ from .forms import ProductImageFormSet, CreateProductForm
 def product_list(request):
     products  = Product.objects.all()
     categories = Category.objects.all()
+    
+    # Filtering
+    selected_category = request.GET.getlist("category")
+    
+    if selected_category:
+        products = products.filter(category_id__in=selected_category)
 
     return render(
         request,
@@ -14,6 +20,7 @@ def product_list(request):
         {
             "products": products,
             "categories": categories,
+            "selected_category": selected_category,
         }
     )
     
