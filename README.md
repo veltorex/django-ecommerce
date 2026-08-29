@@ -6,6 +6,7 @@ A simple e-commerce web application built with Django.
 
 - Product management
 - Product image upload
+- Responsive product listing
 
 ## Technologies
 
@@ -27,7 +28,7 @@ A simple e-commerce web application built with Django.
     │
     |---config/
     |---products/
-    |---media/
+    |---templates/
     |---static/
 
 ## Installation
