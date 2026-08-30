@@ -11,14 +11,15 @@
         <div class="product__detail">
             <div 
                 class="product__image-container"
-                data-image='[
+                data-images='[
                     {% for image in product.images.all %}
                         "{{ image.image.url }}"{% if not forloop.last %},{% endif %}
                     {% endfor %}
                 ]'    
             >
                 <button id="prev-btn" class="product__prev-btn"><</button>
-                {% with image=product.images.first %} 
+                <div class="product__content">
+                    {% with image=product.images.first %} 
                     {% if image %}
                         <img
                             src="{{ image.image.url }}"
@@ -26,13 +27,14 @@
                             class="product__image"
                         />
                     {% endif %} 
-                {% endwith %}
+                    {% endwith %}
+                    <div class="product__meta">
+                        <span class="product__category">
+                            {{ product.category.name }}
+                        </span>
+                    </div>
+                </div>
                 <button id="next-btn" class="product__next-btn">></button>
-            </div>
-            <div class="product__meta">
-                <span class="product__category">
-                    {{ product.category.name }}
-                </span>
             </div>
         </div>
         <h2 class="product__title">{{ product.title }}</h2>
@@ -43,4 +45,7 @@
     </article>
 </main>
 
+{% block script %}
+    <script src="{% static 'products/js/product-detail.js' %}"></script>
+{% endblock script %}
 {% endblock content %}

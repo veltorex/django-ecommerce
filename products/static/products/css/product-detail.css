@@ -14,13 +14,43 @@
     margin: 0 auto;
 }
 
+/* Product Content */
+
+.product__content {
+    flex: 1;
+    min-width: 0;
+}
+
 /* Product Image */
+
+.product__image-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
 
 .product__image {
     width: 100%;
-    margin: 0 auto;
-
+    aspect-ratio: 16 / 9;
+    object-fit: fill;
     border-radius: 12px;
+}
+
+.product__next-btn,
+.product__prev-btn {
+    flex-shrink: 0;
+
+    padding: 16px;
+
+    font-size: 16px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--color-hover);
+
+    cursor: pointer;
 }
 
 /* Product Title */
@@ -51,7 +81,7 @@
     box-shadow: 0 -4px 8px 0 #00000030;
 }
 
-/* Product Price*/
+/* Product Price */
 
 .product__price {
     font-size: 20px;
@@ -69,9 +99,10 @@
 /* Product Meta */
 
 .product__meta {
-    background: var(--color-hover);
+    margin-top: 8px;
     padding: 4px;
 
+    background: var(--color-hover);
     border-radius: 8px;
 
     font-size: small;
