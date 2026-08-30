@@ -1,12 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category
 from .forms import ProductImageFormSet, CreateProductForm
+from .filters import filter_products
 
 # Create your views here.
 
 def product_list(request):
     products  = Product.objects.all()
     categories = Category.objects.all()
+    
+    # Search
+    query = request.GET.get("q", "").strip()
+    products = filter_products(products, query)
     
     # Filtering
     selected_category = request.GET.getlist("category")
@@ -37,6 +42,7 @@ def product_list(request):
             "min_price": min_price,
             "max_price": max_price,
             "sort_by": sort_by,
+            "query": query,
         }
     )
     
