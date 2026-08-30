@@ -8,17 +8,21 @@
 {% block content %}
 <main>
     <article class="product">
-        {% with image=product.images.first %} {% if image %}
-        <img
-            src="{{ image.image.url }}"
-            alt="{{ product.title }}"
-            class="product__image"
-        />
-        {% endif %} {% endwith %}
-        <div class="product__meta">
-            <span class="product__category">
-                {{ product.category.name }}
-            </span>
+        <div class="product__detail">
+            {% with image=product.images.first %} 
+                {% if image %}
+                    <img
+                        src="{{ image.image.url }}"
+                        alt="{{ product.title }}"
+                        class="product__image"
+                    />
+                {% endif %} 
+            {% endwith %}
+            <div class="product__meta">
+                <span class="product__category">
+                    {{ product.category.name }}
+                </span>
+            </div>
         </div>
         <h2 class="product__title">{{ product.title }}</h2>
         <p class="product__description">{{ product.description }}</p>
