@@ -9,15 +9,26 @@
 <main>
     <article class="product">
         <div class="product__detail">
-            {% with image=product.images.first %} 
-                {% if image %}
-                    <img
-                        src="{{ image.image.url }}"
-                        alt="{{ product.title }}"
-                        class="product__image"
-                    />
-                {% endif %} 
-            {% endwith %}
+            <div 
+                class="product__image-container"
+                data-image='[
+                    {% for image in product.images.all %}
+                        "{{ image.image.url }}"{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ]'    
+            >
+                <button id="prev-btn" class="product__prev-btn"><</button>
+                {% with image=product.images.first %} 
+                    {% if image %}
+                        <img
+                            src="{{ image.image.url }}"
+                            alt="{{ product.title }}"
+                            class="product__image"
+                        />
+                    {% endif %} 
+                {% endwith %}
+                <button id="next-btn" class="product__next-btn">></button>
+            </div>
             <div class="product__meta">
                 <span class="product__category">
                     {{ product.category.name }}
