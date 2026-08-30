@@ -1,0 +1,11 @@
+<form action="{% url 'product-list' %}" method="get" class="search">
+    <input 
+        type="search"
+        class="search-bar"
+        name="q"
+        placeholder="Search products..."
+        value="{{ query }}"
+    >
+
+    <button type="submit" class="search-button">Search</button>
+</form>

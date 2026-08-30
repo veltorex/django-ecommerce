@@ -6,15 +6,22 @@
 {% endblock extra_css %}
 
 {% block content %}
+<div class="search-container">
+    {% include 'components/search-bar.html' %}
+</div>
 <main class="product-list">
     <h1 class="product-list__title">Products</h1>
 
     <div class="product-list__layout">
 
         <div class="product-list__grid">
-            {% for product in products %}
-                {% include 'components/product-card.html' with product=product %}
-            {% endfor %}
+            {% if products %}
+                {% for product in products %}
+                    {% include 'components/product-card.html' with product=product %}
+                {% endfor %}
+            {% else %}
+                <p>No products found for "{{ query }}".</p>
+            {% endif %}
         </div>
 
         {% include 'components/filter-sidebar.html' %}

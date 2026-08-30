@@ -28,11 +28,35 @@
     line-height: 1.2;
 }
 
+/* Search Bar */
+.search-container {
+    display: none;
+
+    width: calc(90% - 24px);
+    margin: 0 auto;
+
+    position: sticky;
+    top: 65px;
+    right: 12px;
+
+    z-index: 1300;
+}
+.search-container .search-bar {
+    width: 90%;
+    margin-bottom: 24px;
+
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
     .product-list__layout {
         grid-template-columns: 1fr;
+    }
+
+    .search-container,
+    .search-container .search {
+        display: block !important;
     }
 }
 @media (max-width: 600px) {
