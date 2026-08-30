@@ -143,6 +143,10 @@
         margin-left: 8px;
         font-size: 28px;
     }
+
+    .search {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
