@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from .services.image import process_product_image
 
 # Create your models here.
 
@@ -38,3 +39,16 @@ class ProductImage(models.Model):
         related_name="images",
     )
     image = models.ImageField(upload_to="products/", max_length=255)
+    
+    
+    
+    def save(self, *args, **kwargs):
+        processed_image = process_product_image(self.image)
+
+        self.image.save(
+            self.image.name.rsplit(".", 1)[0] + ".jpg",
+            processed_image,
+            save=False,
+        )
+
+        super().save(*args, **kwargs)
