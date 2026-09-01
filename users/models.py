@@ -54,3 +54,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
     
+
+# Profile
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, 
+        on_delete=models.CASCADE,
+        related_name="profile",
+    )
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20, blank=True)
+    avatar = models.ImageField(upload_to="avatars/", blank=True)
