@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import UserCreationForm, UserChangeForm
-from .models import User
+from .models import User, Profile, Address
 
 # Register your models here.
 
@@ -35,3 +35,17 @@ class UserAdmin(BaseUserAdmin):
 
 # Register User model to admin site
 admin.site.register(User, UserAdmin)
+
+# Profile
+
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ["user", "first_name", "last_name", "phone_number"]
+    search_fields = ["user__email", "first_name", "last_name"]
+    
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ["user", "title", "postal_code"]
+    search_fields = ["user__email", "title", "postal_code"]
+    
+# Register
+admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Address, AddressAdmin)
