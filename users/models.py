@@ -62,7 +62,18 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         related_name="profile",
     )
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
     avatar = models.ImageField(upload_to="avatars/", blank=True)
+    
+class Address(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="addresses",
+    )
+    title = models.CharField(max_length=100)
+    recipient_name = models.CharField(max_length=200)
+    address = models.TextField()
+    postal_code = models.CharField(max_length=20)
