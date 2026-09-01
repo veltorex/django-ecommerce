@@ -139,3 +139,6 @@ MAILERS = {
 # Media
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Logout
+LOGOUT_REDIRECT_URL = "/products/"
