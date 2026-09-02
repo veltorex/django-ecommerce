@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-from .models import User, Profile
+from .models import User, Profile, Address
 
 
 class UserCreationForm(forms.ModelForm):
@@ -59,3 +59,10 @@ class ProfileForm(forms.ModelForm):
             "phone_number",
             "avatar",
         ]
+        
+# Address
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ["title", "recipient_name", "address", "postal_code"]
