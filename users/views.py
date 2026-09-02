@@ -43,3 +43,9 @@ def edit_profile(request):
         form = ProfileForm(instance=profile)
         
     return render(request, "registration/edit_profile.html", {"form": form})
+
+@login_required
+def address_list(request):
+    addresses = request.user.addresses.all()
+    
+    return render(request, "users/address_list.html", {"addresses": addresses})
