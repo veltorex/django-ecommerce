@@ -5,8 +5,15 @@ A simple e-commerce web application built with Django.
 ## Features
 
 - Product management
+- Category management
 - Product image upload
 - Responsive product listing
+- Product search
+- Product filtering
+- User authentication
+- Password management
+- Profile management
+- Address management
 
 ## Technologies
 
@@ -15,6 +22,8 @@ A simple e-commerce web application built with Django.
 - SQLite
 - HTML
 - CSS
+- Pillow
+- Argon2
 - Git
 
 ## Project Structure
@@ -30,6 +39,7 @@ A simple e-commerce web application built with Django.
     |---.github/
     |---config/
     |---products/
+    |---users/
     |---templates/
     |---static/
 
@@ -119,11 +129,7 @@ A REST API may be added in the future using Django REST Framework. -->
 
 ## Future Improvements
 
-- Category management
-- Product search
-- Product filtering
 - Pagination
-- User authentication
 - User favorites
 - Shopping cart
 - Order management
@@ -155,11 +161,14 @@ The main goal is to practice Django concepts such as:
 - Forms
 - File uploads
 - Authentication
+- Password management
 - Sessions
+- User profiles
+- Address management
 - Class-Based Views
-- Pagination
 - Database relationships
 - Django Admin
+- Password hashing
 - Testing
 
 ## Contributing

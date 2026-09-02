@@ -58,12 +58,14 @@
 
 /* Login */
 
-.navbar__login {
+.navbar__login,
+.navbar__logout {
     padding: 9px 16px;
 
     color: var(--color-surface) !important;
     background: var(--color-primary);
 
+    border: none;
     border-radius: 8px;
 
     transition:
@@ -71,7 +73,8 @@
         transform 0.2s ease;
 }
 
-.navbar__login:hover {
+.navbar__login:hover,
+.navbar__logout:hover {
     background: #1d4ed8;
     transform: translateY(-1px);
 }
@@ -158,7 +161,8 @@
         height: 56px;
     }
 
-    .navbar__login {
+    .navbar__login,
+    .navbar__logout {
         padding: 8px 10px;
     }
 }
