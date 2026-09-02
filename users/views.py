@@ -28,6 +28,7 @@ def profile(request):
     
     return render(request, "registration/profile.html", {"profile": profile})
     
+@login_required
 def edit_profile(request):
     profile = request.user.profile
     
