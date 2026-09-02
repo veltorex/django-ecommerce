@@ -76,3 +76,25 @@ def delete_address(request, pk):
         address.delete()
         
     return redirect("users:address-list")
+
+@login_required
+def edit_address(request, pk):
+    address = get_object_or_404(
+        request.user.addresses,
+        pk=pk,
+    )
+
+    if request.method == "POST":
+        form = AddressForm(request.POST, instance=address)
+
+        if form.is_valid():
+            form.save()
+            return redirect("users:address-list")
+    else:
+        form = AddressForm(instance=address)
+
+    return render(
+        request,
+        "users/edit_address.html",
+        {"form": form},
+    )
