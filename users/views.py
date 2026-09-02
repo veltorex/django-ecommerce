@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .forms import UserCreationForm, ProfileForm, AddressForm
@@ -67,4 +67,12 @@ def add_address(request):
         
     return render(request, "users/add_address.html", {"form": form})
         
+
+@login_required
+def delete_address(request, pk):
+    address = get_object_or_404(request.user.addresses, pk=pk)
     
+    if request.method == "POST":
+        address.delete()
+        
+    return redirect("users:address-list")
