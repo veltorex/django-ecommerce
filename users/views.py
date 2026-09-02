@@ -32,7 +32,7 @@ def edit_profile(request):
     profile = request.user.profile
     
     if request.method == "POST":
-        form = ProfileForm(request.POST, request.FILES)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
         
         if form.is_valid():
             form.save()
