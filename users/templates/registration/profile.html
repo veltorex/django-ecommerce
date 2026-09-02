@@ -3,10 +3,10 @@
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
-    <main>
+    <main class="profile">
         <div>
-            <h2>{{ profile.first_name }} {{ profile.last_name }}</h2>
-            <p>{{ profile.user.email }}</p>
+            <h2 class="profile__fullname">{{ profile.first_name }} {{ profile.last_name }}</h2>
+            <p class="profile__email">{{ profile.user.email }}</p>
         </div>
     </main>
 {% endblock content %}

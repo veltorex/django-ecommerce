@@ -3,33 +3,44 @@
 {% block title %}Addresses{% endblock title %}
 
 {% block content %}
-    <main>
-        <div>
+    <main class="address">
+        <div class="address__content">
             {% for address in addresses %}
-                <article>
-                    <h2>{{ address.title }}</h2>
-                    <p>{{ address.recipient_name }}</p>
-                    <p>{{ address.address }}</p>
-                    <p>Postal Code:{{ address.postal_code }}</p>
+                <article class="address__card">
+                    <h2 class="address__title">{{ address.title }}</h2>
+                    <p class="address__recipient">{{ address.recipient_name }}</p>
+                    <p class="address__text">{{ address.address }}</p>
+                    <p class="address__postal-code">
+                        Postal Code: {{ address.postal_code }}
+                    </p>
 
-                    <form action="{% url 'users:delete-address' address.pk %}" method="post">
+                    <form
+                        action="{% url 'users:delete-address' address.pk %}"
+                        method="post"
+                        class="address__delete-form"
+                    >
                         {% csrf_token %}
-                        <button type="submit">
+                        <button type="submit" class="address__delete-button">
                             Delete
                         </button>
                     </form>
-                    <a href="{% url 'users:edit-address' address.pk %}">
-                            Edit
+
+                    <a
+                        href="{% url 'users:edit-address' address.pk %}"
+                        class="address__edit-link"
+                    >
+                        Edit
                     </a>
                 </article>
             {% empty %}
-                <p>You don't have any addresses yet.</p>
+                <p class="address__empty">
+                    You don't have any addresses yet.
+                </p>
             {% endfor %}
-            <div>
-                <a href="{% url 'users:add-address' %}">
-                    <button>
-                        Add Address
-                    </button>
+
+            <div class="address__actions">
+                <a href="{% url 'users:add-address' %}" class="address__add-link">
+                    Add Address
                 </a>
             </div>
         </div>
