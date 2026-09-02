@@ -8,9 +8,16 @@
             {% for address in addresses %}
                 <article>
                     <h2>{{ address.title }}</h2>
-                    <p>{{ address.recepient_name }}</p>
+                    <p>{{ address.recipient_name }}</p>
                     <p>{{ address.address }}</p>
                     <p>Postal Code:{{ address.postal_code }}</p>
+
+                    <form action="{% url 'users:delete-address' address.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">
+                            Delete
+                        </button>
+                    </form>
                 </article>
             {% empty %}
                 <p>You don't have any addresses yet.</p>
