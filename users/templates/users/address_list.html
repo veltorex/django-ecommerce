@@ -15,7 +15,13 @@
             {% empty %}
                 <p>You don't have any addresses yet.</p>
             {% endfor %}
-
+            <div>
+                <a href="{% url 'users:add-address' %}">
+                    <button>
+                        Add Address
+                    </button>
+                </a>
+            </div>
         </div>
     </main>
 {% endblock content %}
