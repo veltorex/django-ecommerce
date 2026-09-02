@@ -142,3 +142,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # Logout
 LOGOUT_REDIRECT_URL = "/products/"
+
+# Password
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+]
