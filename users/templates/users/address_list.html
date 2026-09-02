@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Addresses{% endblock title %}
+
+{% block content %}
+    <main>
+        <div>
+            {% for address in addresses %}
+                <article>
+                    <h2>{{ address.title }}</h2>
+                    <p>{{ address.recepient_name }}</p>
+                    <p>{{ address.address }}</p>
+                    <p>Postal Code:{{ address.postal_code }}</p>
+                </article>
+            {% empty %}
+                <p>You don't have any addresses yet.</p>
+            {% endfor %}
+
+        </div>
+    </main>
+{% endblock content %}
