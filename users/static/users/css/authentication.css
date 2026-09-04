@@ -4,7 +4,7 @@
     min-height: 65vh;
 }
 
-/* Auth Forms */
+/* Auth Form */
 
 .auth__form {
     display: flex;
@@ -35,6 +35,8 @@
     border-radius: 8px;
 
     font: inherit;
+
+    transition: transform 0.2s ease;
 }
 
 .auth__form p {
@@ -46,7 +48,7 @@
     outline-offset: 2px;
 }
 
-.auth__form input:hover {
+.auth__form input:not([type="file"]):hover {
     transform: translateY(-1px);
 }
 
@@ -55,7 +57,7 @@
     max-width: 200px;
 
     padding: 16px;
-    margin-top: 24px;
+    margin-top: 32px;
 
     font-size: 16px;
 
@@ -66,10 +68,20 @@
     border-radius: 8px;
 
     cursor: pointer;
-
-    transition: transform 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 .auth__button:hover {
     transform: translateY(-2px);
+    background: var(--color-primary-hover);
+}
+
+/* Auth Fields */
+
+.auth__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
