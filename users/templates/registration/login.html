@@ -8,10 +8,28 @@
 
 {% block content %}
     <main class="auth">
+        <h1 class="auth__title">Login</h1>
         <form action="" method="post" class="auth__form">
             {% csrf_token %}
-            {{ form.as_p }}
-    
+            <div class="auth__fields">
+                {% if form.non_field_errors %}
+                    <div class="auth__errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="auth__field">
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.errors %}
+                            <div class="auth__errors">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
             <button type="submit" class="auth__button">Login</button>
         </form>
     </main>
