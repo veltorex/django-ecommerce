@@ -46,6 +46,10 @@
     outline-offset: 2px;
 }
 
+.auth__form input:hover {
+    transform: translateY(-1px);
+}
+
 .auth__button {
     width: 100%;
     max-width: 200px;

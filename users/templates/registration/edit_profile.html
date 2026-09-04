@@ -2,12 +2,14 @@
 {% load static %}
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'users/css/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/edit_profile.css' %}">
 {% endblock extra_css %}
 
 {% block title %}Edit Profile{% endblock title %}
 
 {% block content %}
     <main class="auth">
+        <h1 class="auth__title">Profile Edit</h1>
         <form action="{% url 'users:edit-profile' %}" method="post" enctype="multipart/form-data" class="auth__form">
             {% csrf_token %}
             <div class="auth__fields">
