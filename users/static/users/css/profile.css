@@ -12,8 +12,8 @@
     justify-content: center;
     gap: 32px;
 
-    background: var(--color-surface, #fff);
-    border: 1px solid #e8e8e8;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-gray-border);
     border-radius: 28px;
 
     box-shadow: 0 16px 50px rgba(0, 0, 0, 0.08);
@@ -30,13 +30,14 @@
     width: clamp(140px, 18vw, 280px);
     height: clamp(140px, 18vw, 280px);
 
+    padding: 4px;
+
     object-fit: cover;
     border-radius: 50%;
 
-    border: 6px solid var(--color-surface);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.12),
-        0 0 0 1px #e8e8e8;
+    border: 1px solid var(--color-gray-border);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* Profile Details */
@@ -47,10 +48,11 @@
     align-items: center;
 
     text-align: center;
+    gap: 6px;
 }
 
 .profile__fullname {
-    margin: 0 0 10px;
+    margin: 0 0 4px;
 
     font-size: clamp(24px, 3vw, 30px);
     font-weight: 700;
@@ -59,7 +61,7 @@
 
 .profile__email,
 .profile__phone-number {
-    margin: 4px 0;
+    margin: 0;
 
     color: #777;
     font-size: 16px;
@@ -68,7 +70,7 @@
 /* Edit Profile Button */
 
 .profile__edit-button {
-    margin-top: 24px;
+    margin-top: 20px;
     padding: 12px 28px;
 
     display: inline-flex;
@@ -98,4 +100,16 @@
 
 .profile__edit-button:active {
     transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .profile {
+        width: 90%;
+        margin: 32px auto;
+        padding: 40px 24px;
+        min-height: 450px;
+        border-radius: 22px;
+    }
 }

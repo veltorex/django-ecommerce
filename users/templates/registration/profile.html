@@ -11,13 +11,13 @@
         <div class="profile__image-container">
             {% if profile.avatar %}
                 <img
-                    src="{{ profile.avatar.url }}"
+                    src="{% static 'users/images/default-avatar.svg' %}"
                     alt="Profile picture"
                     class="profile__avatar"
                 />
             {% else %}
                 <img
-                    src="{% static 'users/images/default-avatar.png' %}"
+                    src="{% static 'users/images/default-avatar.svg' %}"
                     alt="Profile picture"
                     class="profile__avatar"
                 />
