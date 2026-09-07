@@ -63,7 +63,7 @@
 .profile__phone-number {
     margin: 0;
 
-    color: #777;
+    color: var(--color-muted);
     font-size: 16px;
 }
 
