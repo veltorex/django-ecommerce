@@ -3,12 +3,14 @@
 {% block title %}Edit Address{% endblock title %}
 
 {% block content %}
-    <main>
-        <form method="post">
+    <main class="address-form">
+        <form method="post" class="address-form__form">
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button type="submit">Save Changes</button>
+            <button type="submit" class="address-form__submit">
+                Save Changes
+            </button>
         </form>
     </main>
 {% endblock content %}

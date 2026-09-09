@@ -1,12 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+{% endblock extra_css %}
 
 {% block title %}Register{% endblock title %}
 
 {% block content %}
-    <form action="{% url 'users:register' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <main class="auth">
+        <h1 class="auth__title">register</h1>
+        <form action="{% url 'register' %}" method="post" class="auth__form">
+            {% csrf_token %}
+            
+            <div class="auth__fields">
+                {% for field in form %}
+                    <div class="auth__field">
+                        {{ field.label_tag }}
+                        {{ field }}
 
-        <button type="submit">Register</button>
-    </form>
+                        {% if field.help_text %}
+                            <div class="auth__help">
+                                {{ field.help_text }}
+                            </div>
+                        {% endif %}
+
+                        {% if field.errors %}
+                            <div class="auth__errors">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="auth__button">Register</button>
+        </form>
+    </main>
 {% endblock content %}

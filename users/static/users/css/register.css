@@ -1,0 +1,45 @@
+/* Title */
+
+.auth__title {
+    text-align: center;
+}
+
+/* Form Field */
+
+.auth__fields {
+    width: 100%;
+    align-items: center;
+}
+
+.auth__field {
+    width: 80%;
+}
+
+.auth__field label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+/* Errors */
+
+.auth__errors {
+    margin-top: 6px;
+
+    color: var(--color-danger);
+    font-size: 14px;
+
+    max-width: 80%;
+}
+
+.auth__errors ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Disabled Button */
+
+.auth__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}

@@ -1,12 +1,46 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+{% endblock extra_css %}
 
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
-    <main>
-        <div>
-            <h2>{{ profile.first_name }} {{ profile.last_name }}</h2>
-            <p>{{ profile.user.email }}</p>
+    <main class="profile">
+        <div class="profile__image-container">
+            {% if profile.avatar %}
+                <img
+                    src="{% static 'users/images/default-avatar.svg' %}"
+                    alt="Profile picture"
+                    class="profile__avatar"
+                />
+            {% else %}
+                <img
+                    src="{% static 'users/images/default-avatar.svg' %}"
+                    alt="Profile picture"
+                    class="profile__avatar"
+                />
+            {% endif %}
+        </div>
+        <div class="profile__details">
+            {% if profile.first_name or profile.last_name %}
+                <h2 class="profile__fullname">
+                    {{ profile.first_name }} {{ profile.last_name }}
+                </h2>
+            {% endif %}
+        
+            <p class="profile__email">{{ profile.user.email }}</p>
+        
+            {% if profile.phone_number %}
+                <p class="profile__phone-number">
+                    {{ profile.phone_number }}
+                </p>
+            {% endif %}
+        
+            <a href="{% url 'users:edit-profile' %}" class="profile__edit-button">
+                Edit Profile
+            </a>
         </div>
     </main>
 {% endblock content %}

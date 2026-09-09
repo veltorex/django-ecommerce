@@ -1,12 +1,38 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/edit_profile.css' %}">
+{% endblock extra_css %}
 
 {% block title %}Edit Profile{% endblock title %}
 
 {% block content %}
-    <form action="{% url 'users:edit-profile' %}" method="post" endtype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <main class="auth">
+        <h1 class="auth__title">Profile Edit</h1>
+        <form action="{% url 'users:edit-profile' %}" method="post" enctype="multipart/form-data" class="auth__form">
+            {% csrf_token %}
+            <div class="auth__fields">
+                {% if form.non_field_errors %}
+                    <div class="auth__errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="auth__field">
+                        {{ field.label_tag }}
+                        {{ field }}
 
-        <button type="submit">Save</button>
-    </form>
+                        {% if field.errors %}
+                            <div class="auth__errors">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+    
+            <button type="submit" class="auth__button">Save</button>
+        </form>
+    </main>
 {% endblock content %}
