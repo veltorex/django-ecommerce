@@ -15,7 +15,7 @@
                     </p>
 
                     <form
-                        action="{% url 'users:delete-address' address.pk %}"
+                        action="{% url 'delete-address' address.pk %}"
                         method="post"
                         class="address__delete-form"
                     >
@@ -26,7 +26,7 @@
                     </form>
 
                     <a
-                        href="{% url 'users:edit-address' address.pk %}"
+                        href="{% url 'edit-address' address.pk %}"
                         class="address__edit-link"
                     >
                         Edit
@@ -39,7 +39,7 @@
             {% endfor %}
 
             <div class="address__actions">
-                <a href="{% url 'users:add-address' %}" class="address__add-link">
+                <a href="{% url 'add-address' %}" class="address__add-link">
                     Add Address
                 </a>
             </div>

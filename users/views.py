@@ -37,7 +37,7 @@ def edit_profile(request):
         
         if form.is_valid():
             form.save()
-            return redirect("users:profile")
+            return redirect("profile")
         
     else:
         form = ProfileForm(instance=profile)
@@ -60,7 +60,7 @@ def add_address(request):
             address = form.save(commit=False)
             address.user = request.user
             address.save()
-            return redirect("users:address-list")
+            return redirect("address-list")
         
     else:
         form =  AddressForm()
@@ -75,7 +75,7 @@ def delete_address(request, pk):
     if request.method == "POST":
         address.delete()
         
-    return redirect("users:address-list")
+    return redirect("address-list")
 
 @login_required
 def edit_address(request, pk):
@@ -89,7 +89,7 @@ def edit_address(request, pk):
 
         if form.is_valid():
             form.save()
-            return redirect("users:address-list")
+            return redirect("address-list")
     else:
         form = AddressForm(instance=address)
 
