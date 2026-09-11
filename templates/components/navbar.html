@@ -9,12 +9,12 @@
         <span></span>
         <span></span>
     </button>
-    <a href="{% url 'product-list' %}" class="navbar__brand">Store</a>
+    <a href="{% url 'products:product-list' %}" class="navbar__brand">Store</a>
 
     <div class="navbar__actions">
         {% include 'components/search-bar.html' %}
         <div class="navbar__links">
-            <a href="{% url 'product-list' %}" class="navbar__link">Products</a>
+            <a href="{% url 'products:product-list' %}" class="navbar__link">Products</a>
             <a href="#" class="navbar__link">About</a>
             <a href="#" class="navbar__link">Contact</a>
         </div>
