@@ -1,4 +1,4 @@
-<a href="{% url 'product-detail' product.id %}" class="product-card__link">
+<a href="{% url 'products:product-detail' product.id %}" class="product-card__link">
     <article class="product-card">
         {% with image=product.images.first %} {% if image %}
         <img
