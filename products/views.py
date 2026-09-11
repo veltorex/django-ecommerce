@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category
-from .forms import ProductImageFormSet, CreateProductForm
+from .forms import ProductImageFormSet, ProductForm
 from .filters import filter_products
 
 # Create your views here.
@@ -60,7 +60,7 @@ def product_detail(request, pk):
     
 def product_create(request):
     if request.method == "POST":
-        form = CreateProductForm(request.POST)
+        form = ProductForm(request.POST)
         formset = ProductImageFormSet(request.POST, request.FILES)
 
         if form.is_valid() and formset.is_valid():
@@ -72,7 +72,7 @@ def product_create(request):
             return redirect("product-list")
 
     else:
-        form = CreateProductForm()
+        form = ProductForm()
         formset = ProductImageFormSet()
 
     return render(
@@ -98,14 +98,14 @@ def product_update(request, pk):
     product = get_object_or_404(Product, pk=pk)
     
     if request.method == "POST":
-        form = CreateProductForm(request.POST, instance=product)  # Use the existing product instance
+        form = ProductForm(request.POST, instance=product)  # Use the existing product instance
         
         if form.is_valid():
             form.save()
             return redirect("product-list")
         
     else:
-        form = CreateProductForm(instance=product)
+        form = ProductForm(instance=product)
         
     return render(
         request,
