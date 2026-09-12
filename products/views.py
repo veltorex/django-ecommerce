@@ -69,7 +69,7 @@ def product_create(request):
             formset.instance = product
             formset.save()
 
-            return redirect("product-list")
+            return redirect("products:product-list")
 
     else:
         form = ProductForm()
@@ -90,7 +90,7 @@ def prodcut_delete(request, pk):
     if request.method == "POST":
         
         product.delete()
-        return redirect("product-list")
+        return redirect("products:product-list")
     
     return render(request, "products/product_delete.html", {"product": product})
 
@@ -102,7 +102,7 @@ def product_update(request, pk):
         
         if form.is_valid():
             form.save()
-            return redirect("product-list")
+            return redirect("products:product-list")
         
     else:
         form = ProductForm(instance=product)
