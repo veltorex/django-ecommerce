@@ -3,10 +3,10 @@ from django.forms import inlineformset_factory
 from .models import Product, ProductImage
 
 
-class CreateProductForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ("title", "description", "price")
+        fields = ("title", "description", "price", "category")
 
 
 class ProductImageForm(forms.ModelForm):
