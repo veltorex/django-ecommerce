@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.text import slugify
 from .services.image import process_product_image
+from .services.slug import create_unique_slug
 
 # Create your models here.
 
@@ -25,8 +25,9 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def save(self, *args, **kwargs):
-        # create slug field
-        self.slug = slugify(self.title)
+        if not self.slug:
+            self.slug = create_unique_slug(self.title, Product)
+
         super().save(*args, **kwargs)
         
     def __str__(self):
