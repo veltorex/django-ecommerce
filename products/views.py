@@ -47,8 +47,8 @@ def product_list(request):
     )
     
 
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     
     return render(
         request,
@@ -84,8 +84,8 @@ def product_create(request):
         },
     )
     
-def prodcut_delete(request, pk):
-    product = get_object_or_404(Product, pk=pk) # If the object doesn't exist, it returns an HTTP 404 error page.
+def product_delete(request, slug):
+    product = get_object_or_404(Product, slug=slug) # If the object doesn't exist, it returns an HTTP 404 error page.
     
     if request.method == "POST":
         
@@ -94,8 +94,8 @@ def prodcut_delete(request, pk):
     
     return render(request, "products/product_delete.html", {"product": product})
 
-def product_update(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def product_update(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     
     if request.method == "POST":
         form = ProductForm(request.POST, instance=product)  # Use the existing product instance
