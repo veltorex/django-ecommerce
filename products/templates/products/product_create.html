@@ -4,19 +4,55 @@
 {% block content %}
 <main>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %} {{ form.as_p }} {{ formset.management_form }}
+        {% csrf_token %}
 
-        <div id="image-forms">
+        {% if formset.non_form_errors %}
+            {% for error in formset.non_form_errors %}
+                <p class="form-field__error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <div class="form-fields">
+            {% for field in form %}
+                <div class="form-field">
+                    {{ field.label_tag }}
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <p class="form-field__help">
+                            {{ field.help_text}}
+                        </p>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-field__error">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {{ formset.management_form }}
+
+        <div id="image-forms" class="image-forms">
             {% for image_form in formset %}
-            <div class="image-form" {% if not forloop.first %}hidden{% endif %}>
-                {{ image_form.image }}
+                <div class="image-form" {% if not forloop.first %}hidden{% endif %}>
+                    {{ image_form.image }}
 
-                <button type="button" class="delete-image">Delete</button>
-            </div>
+                    {% if image_form.image.errors %}
+                        {% for error in image_form.image.errors %}
+                            <p class="form-field__error">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    <button type="button" class="delete-image">Delete</button>
+                </div>
             {% endfor %}
         </div>
 
-        <button type="submit">Create Product</button>
+        <button type="submit" class="form-submit">Create Product</button>
     </form>
 </main>
 {% endblock content %} 
