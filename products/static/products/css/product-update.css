@@ -1,0 +1,121 @@
+/* Product update page */
+
+.product-update {
+    /* Center the form horizontally */
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Product form */
+
+.product-form {
+    /* Limit the form width */
+    width: min(100%, 600px);
+    padding: 24px;
+
+    background: var(--color-background);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+/* Form fields */
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    font-weight: 600;
+}
+
+/* Form inputs */
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-gray-border);
+    border-radius: 6px;
+
+    background: var(--color-background);
+    color: inherit;
+
+    font: inherit;
+}
+
+/* Input focus */
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Help text */
+
+.form-field__help {
+    margin: 0;
+
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Form errors */
+
+.form-field__error {
+    margin: 4px 0 0;
+
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+/* Submit button */
+
+.form-submit {
+    width: 100%;
+    margin-top: 24px;
+    padding: 11px 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: var(--color-primary);
+    color: white;
+
+    font: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    opacity: 0.9;
+}
+
+/* Responsive design */
+
+@media (max-width: 600px) {
+    .product-update {
+        padding: 20px 12px;
+    }
+
+    .product-form {
+        padding: 18px;
+    }
+}

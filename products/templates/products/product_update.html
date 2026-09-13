@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/product-update.css' %}">
+{% endblock extra_css %}
+
 {% block content %}
 <main class="product-update">
     <form method="post" class="product-form">
