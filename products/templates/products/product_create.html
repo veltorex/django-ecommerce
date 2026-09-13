@@ -1,9 +1,13 @@
 {% extends "base.html" %} 
 {% load static %} 
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/product-create.css' %}">
+{% endblock extra_css %}
+
 {% block content %}
-<main>
-    <form method="post" enctype="multipart/form-data">
+<main class="product-create">
+    <form method="post" enctype="multipart/form-data" class="product-form">
         {% csrf_token %}
 
         {% if formset.non_form_errors %}
