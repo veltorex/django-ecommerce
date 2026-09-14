@@ -47,6 +47,57 @@
 
 }
 
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+    padding-bottom: 2rem;
+}
+
+.step-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.step-links a,
+.step-links .current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.step-links a {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+}
+
+.step-links a:hover {
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    border-color: var(--color-primary);
+}
+
+.step-links .current {
+    color: var(--color-surface);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
