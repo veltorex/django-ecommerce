@@ -1,14 +1,41 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/product-update.css' %}">
+{% endblock extra_css %}
+
 {% block content %}
-<main>
-    <form method="POST">
+<main class="product-update">
+    <form method="post" class="product-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        
-        <button type="submit">Update</button>
+
+        <div class="form-fields">
+            {% for field in form %}
+                <div class="form-field">
+                    {{ field.label_tag }}
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <p class="form-field__help">
+                            {{ field.help_text }}
+                        </p>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-field__error">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="form-submit">
+            Update Product
+        </button>
     </form>
 </main>
 {% endblock content %}
-    
