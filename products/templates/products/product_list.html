@@ -27,5 +27,31 @@
         {% include 'components/filter-sidebar.html' %}
 
     </div>
+
+    {% if products.paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if products.has_previous %}
+                    <a href="?{{ query_params.urlencode }}&page=1">&laquo; first</a>
+                    <a href="?{{ query_params.urlencode }}&page={{ products.previous_page_number }}">
+                        previous
+                    </a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ products.number }} of {{ products.paginator.num_pages }}.
+                </span>
+
+                {% if products.has_next %}
+                    <a href="?{{ query_params.urlencode }}&page={{ products.next_page_number }}">
+                        next
+                    </a>
+                    <a href="?{{ query_params.urlencode }}&page={{ products.paginator.num_pages }}">
+                        last &raquo;
+                    </a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
 </main>
 {% endblock content %}
