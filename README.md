@@ -14,6 +14,7 @@ A simple e-commerce web application built with Django.
 - Password management
 - Profile management
 - Address management
+- Pagination
 
 ## Technologies
 
@@ -129,7 +130,6 @@ A REST API may be added in the future using Django REST Framework. -->
 
 ## Future Improvements
 
-- Pagination
 - User favorites
 - Shopping cart
 - Order management
