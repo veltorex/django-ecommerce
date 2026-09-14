@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from .models import Product, Category
 from .forms import ProductImageFormSet, ProductForm
 from .filters import filter_products
@@ -32,17 +33,28 @@ def product_list(request):
     elif sort_by == "newest": 
         products = products.order_by("-created_at")
 
+    # Pagination
+
+    paginator = Paginator(products, 24)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    query_params = request.GET.copy()
+    query_params.pop("page", None)
+
     return render(
         request,
         "products/product_list.html",
         {
-            "products": products,
+            "products": page_obj,
             "categories": categories,
             "selected_category": selected_category,
             "min_price": min_price,
             "max_price": max_price,
             "sort_by": sort_by,
             "query": query,
+            "query_params": query_params,
         }
     )
     
