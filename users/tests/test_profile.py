@@ -86,4 +86,6 @@ class TestProfile(TestCase):
         profile = Profile.objects.get(user=self.user)
 
         self.assertTrue(profile.avatar)
-        self.assertEqual(profile.avatar.name.split("/")[-1], "test.jpg")
+        self.assertTrue(profile.avatar.storage.exists(profile.avatar.name))
+        self.assertTrue(profile.avatar.name.endswith(".jpg"))
+        self.assertTrue(profile.avatar.name.startswith("avatars/"))
