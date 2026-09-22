@@ -21,11 +21,13 @@ def product_list(request):
     max_price = request.GET.get("max_price")
     
     sort_by = request.GET.get("sort")
-    
+
+    if min_price:
+        products = products.filter(price__gte=min_price)
+    if max_price:
+        products = products.filter(price__lte=max_price)
     if selected_category:
         products = products.filter(category_id__in=selected_category)
-    if min_price and max_price:
-        products = products.filter(price__gte=min_price, price__lte=max_price)
     if sort_by == "price_low":
         products = products.order_by("price")
     elif sort_by == "price_high":
