@@ -26,9 +26,9 @@ def product_list(request):
         products = products.filter(category_id__in=selected_category)
     if min_price and max_price:
         products = products.filter(price__gte=min_price, price__lte=max_price)
-    if sort_by == "price-low":
+    if sort_by == "price_low":
         products = products.order_by("price")
-    elif sort_by == "price-high":
+    elif sort_by == "price_high":
         products = products.order_by("-price")
     elif sort_by == "newest": 
         products = products.order_by("-created_at")
