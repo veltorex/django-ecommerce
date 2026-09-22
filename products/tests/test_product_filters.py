@@ -156,3 +156,74 @@ class TestProductFilters(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(products[-1].price, Decimal("310.00"))
 
+    # Test with empty filter
+    def test_product_filters_empty(self):
+        # Define URL
+        url = reverse("products:product-list")       
+
+        # Send request to product list page
+        response = self.client.get(url)
+
+        # Get products
+        products = response.context["products"]
+
+        # Check results
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(list(products.object_list), list(Product.objects.all()))
+
+    # Test empty result
+    def test_product_filters_empty_result(self):
+        # Define URL
+        url = reverse("products:product-list")       
+
+        # Add min price query parameter
+        url += "?min_price=1000"
+
+        # Send request to product list page
+        response = self.client.get(url)
+
+        # Get products
+        products = response.context["products"]
+
+        # Check results
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(products.paginator.count, 0)
+
+    # Test search
+    def test_product_filters_search(self):
+        # Define URL
+        url = reverse("products:product-list")
+
+        # Add q query parameter
+        url += "?q=Test 5"
+
+        # Send request to product list page
+        response = self.client.get(url)
+
+        # Get products
+        products = response.context["products"]
+
+        # Check results
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(products.paginator.count, 1)
+        self.assertEqual(products[0].title, "Test 5")
+
+    # Test search in product description
+    def test_product_filters_search_description(self):
+        # Define URL
+        url = reverse("products:product-list")
+
+        # Add q query parameter
+        url += "?q=description 5"
+
+        # Send request to product list page
+        response = self.client.get(url)
+
+        # Get products
+        products = response.context["products"]
+
+        # Check results
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(products.paginator.count, 1)
+        self.assertEqual(products[0].title, "Test 5")
+    
