@@ -7,34 +7,25 @@ from .filters import filter_products
 # Create your views here.
 
 def product_list(request):
-    products  = Product.objects.all()
+    products = Product.objects.all()
     categories = Category.objects.all()
-    
-    # Search
+
+    # Search & Filtering
     query = request.GET.get("q", "").strip()
-    products = filter_products(products, query)
-    
-    # Filtering
+
+    products = filter_products(
+        query,
+        products,
+        request,
+    )
+
     selected_category = request.GET.getlist("category")
-    
     min_price = request.GET.get("min_price")
     max_price = request.GET.get("max_price")
-    
     sort_by = request.GET.get("sort")
+
     
-    if selected_category:
-        products = products.filter(category_id__in=selected_category)
-    if min_price and max_price:
-        products = products.filter(price__gte=min_price, price__lte=max_price)
-    if sort_by == "price-low":
-        products = products.order_by("price")
-    elif sort_by == "price-high":
-        products = products.order_by("-price")
-    elif sort_by == "newest": 
-        products = products.order_by("-created_at")
-
     # Pagination
-
     paginator = Paginator(products, 24)
 
     page_number = request.GET.get("page")

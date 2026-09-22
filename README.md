@@ -15,6 +15,7 @@ A simple e-commerce web application built with Django.
 - Profile management
 - Address management
 - Pagination
+- Automated testing
 
 ## Technologies
 
@@ -96,52 +97,18 @@ Create a `.env` file in the project root:
 
 Do not commit your `.env` file to the repository.
 
-<!-- ## Screenshots
-
-Screenshots of the application will be added here.
-
-### Home Page
-
-![Home Page](screenshots/home.png)
-
-### Product Page
-
-![Product Page](screenshots/product.png)
-
-### Shopping Cart
-
-![Shopping Cart](screenshots/cart.png)
-
-### Admin Panel
-
-![Admin Panel](screenshots/admin.png) -->
-
-<!-- ## Demo
-
-A live demo will be available here:
-
-**Demo:** DEMO_URL -->
-
-<!-- ## API
-
-This project currently uses Django views and templates.
-
-A REST API may be added in the future using Django REST Framework. -->
 
 ## Future Improvements
 
 - User favorites
 - Shopping cart
 - Order management
-- Add Django REST Framework API
 - Add product reviews and ratings
 - Add order status tracking
 - Add email notifications
-- Add payment integration
 - Improve product recommendations
 - Add advanced filtering
 - Improve UI/UX
-- Add automated tests
 - Deploy the application
 
 ## Testing
@@ -165,7 +132,6 @@ The main goal is to practice Django concepts such as:
 - Sessions
 - User profiles
 - Address management
-- Class-Based Views
 - Database relationships
 - Django Admin
 - Password hashing

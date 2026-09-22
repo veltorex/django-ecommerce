@@ -15,7 +15,7 @@ def register(request):
             # Create user profile
             Profile.objects.create(user=user)
             login(request, user)
-            return redirect("product-list")
+            return redirect("products:product-list")
         
     else:
         form = UserCreationForm()
