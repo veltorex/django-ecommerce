@@ -11,6 +11,9 @@ class Cart(models.Model):
         related_name="cart",
     )
 
+    def __str__(self):
+        return f"{self.user.email}'s cart"
+
 class CartItem(models.Model):
     product = models.ForeignKey(
         Product,
