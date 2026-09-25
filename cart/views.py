@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from .models import Cart
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
+from .models import Cart, CartItem
 
 # Create your views here.
 
@@ -22,3 +23,17 @@ def cart_view(request):
             "cart_items": cart_items,
         },
     )
+
+def remove_from_cart(request, item_id):
+    if request.method == "POST":
+        item = get_object_or_404(
+            CartItem,
+            id=item_id,
+            cart=request.user.cart,
+        )
+
+        item.delete()
+
+        return redirect("cart:cart")
+
+    raise Http404
