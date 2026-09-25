@@ -38,3 +38,35 @@ def remove_from_cart(request, item_id):
         return redirect("cart:cart")
 
     raise Http404
+
+@login_required
+def add_to_cart(request, id):
+    # Only allow POST requests
+    if request.method == "POST":
+        # Get the quantity from the form
+        quantity = int(request.POST.get("quantity", 1))
+
+        # Get or create the user's cart
+        cart, _ = Cart.objects.get_or_create(
+            user=request.user
+        )
+
+        # Get or create the cart item
+        item, created = CartItem.objects.get_or_create(
+            cart=cart,
+            product_id=id,
+            defaults={
+                "quantity": quantity,
+            },
+        )
+
+        # If the item already exists, increase its quantity
+        if not created:
+            item.quantity += quantity
+            item.save(update_fields=["quantity"])
+
+        # Redirect to the cart page
+        return redirect("cart:cart")
+
+    # Return 404 for non-POST requests
+    raise Http404
