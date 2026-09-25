@@ -24,6 +24,7 @@ def cart_view(request):
         },
     )
 
+@login_required
 def remove_from_cart(request, item_id):
     if request.method == "POST":
         item = get_object_or_404(
