@@ -8,6 +8,10 @@
             <div>
                 <h3>{{ item.product.title }}</h3>
                 <p>{{ item.product.price }}</p>
+                <form method="post" action="{% url 'cart:remove' item.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Remove</button>
+                </form>
             </div>
         {% endfor %}
     </main>
