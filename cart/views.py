@@ -70,3 +70,28 @@ def add_to_cart(request, id):
 
     # Return 404 for non-POST requests
     raise Http404
+
+@login_required
+def decrease_quantity(request, item_id):
+    # Only allow POST requests
+    if request.method != "POST":
+        raise Http404
+
+    # Get the cart item belonging to the user's cart
+    item = get_object_or_404(
+        CartItem,
+        cart=request.user.cart,
+        product_id=item_id,
+    )
+
+    # Decrease quantity if there is more than one item
+    if item.quantity > 1:
+        item.quantity -= 1
+        item.save(update_fields=["quantity"])
+
+    # Remove the item if its quantity is one
+    else:
+        item.delete()
+
+    # Redirect back to the cart
+    return redirect("cart:cart")
