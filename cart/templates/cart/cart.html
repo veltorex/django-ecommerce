@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Shopping Cart{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'cart/cart.css' %}">
+{% endblock extra_css %}
 
 {% block content %}
     <main class="cart-page">
