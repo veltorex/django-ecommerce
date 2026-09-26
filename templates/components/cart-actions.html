@@ -1,0 +1,48 @@
+<div class="action-button">
+    {% if item.quantity == 0 %}
+        <!-- Add to cart -->
+        <form action="{% url 'cart:add' item.product.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit">Add to cart</button>
+        </form>
+    {% else %}
+        <div class="actions">
+            <!-- Remove item -->
+            <form
+                action="{% url 'cart:remove' item.id %}"
+                method="post"
+                class="remove"
+            >
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+            </form>
+
+            <!-- Decrease quantity -->
+            <form
+                method="post"
+                action="{% url 'cart:decrease' item.product.id %}"
+                class="decrease"
+            >
+                {% csrf_token %}
+                <button type="submit">-</button>
+            </form>
+
+            <!-- Quantity -->
+            <span class="quantity">
+                {{ item.quantity }}
+            </span>
+
+            <!-- Increase quantity -->
+            <form
+                action="{% url 'cart:add' item.product.id %}"
+                method="post"
+                class="increase"
+            >
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit">+</button>
+            </form>
+        </div>
+    {% endif %}
+</div>
