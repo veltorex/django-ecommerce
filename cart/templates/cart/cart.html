@@ -1,15 +1,56 @@
 {% extends "base.html" %}
 
-{% block title %}Cart{% endblock title %}
+{% block title %}Shopping Cart{% endblock title %}
 
 {% block content %}
-    <main>
-        {% for item in cart_items %}
-            <div>
-                <h3>{{ item.product.title }}</h3>
-                <p>{{ item.product.price }}</p>
-            </div>
-            {% include "components/cart-actions.html" %}
-        {% endfor %}
+    <main class="cart-page">
+        <header class="cart-header">
+            <h1>Shopping Cart</h1>
+
+            {% if cart_items %}
+                <p class="cart-description">
+                    Review the products in your shopping cart.
+                </p>
+            {% endif %}
+        </header>
+
+        {% if cart_items %}
+            <section class="cart-content" aria-label="Shopping cart items">
+                <div class="cart-items">
+                    {% for item in cart_items %}
+                        <article class="cart-item">
+                            <div class="cart-item-info">
+                                <h2 class="cart-item-title">
+                                    {{ item.product.title }}
+                                </h2>
+
+                                <p class="cart-item-price">
+                                    <span class="visually-hidden">
+                                        Price:
+                                    </span>
+                                    {{ item.product.price }}
+                                </p>
+                            </div>
+
+                            <div class="cart-item-actions">
+                                {% include "components/cart-actions.html" %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+        {% else %}
+            <section class="empty-cart" aria-labelledby="empty-cart-title">
+                <h2 id="empty-cart-title">Your cart is empty</h2>
+
+                <p>
+                    You have no products in your shopping cart yet.
+                </p>
+
+                <a href="{% url 'products:list' %}" class="continue-shopping">
+                    Continue shopping
+                </a>
+            </section>
+        {% endif %}
     </main>
 {% endblock content %}
