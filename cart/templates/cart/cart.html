@@ -36,12 +36,29 @@
                                     {{ item.product.price }}
                                 </p>
                             </div>
-
                             <div class="cart-item-actions">
                                 {% include "components/cart-actions.html" %}
                             </div>
                         </article>
                     {% endfor %}
+                </div>
+                <div class="cart-summary">
+                    {% for item in cart_items %}
+                        <div class="cart-summary-item">
+                            <p class="cart-summary-item-name">
+                                {{ item.product.title|truncatechars:30 }}
+                            </p>
+
+                            <p class="cart-summary-item-subtotal">
+                                {{ item.subtotal }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="cart-summary-total">
+                        <span>Total</span>
+                        <strong>{{ total }}</strong>
+                    </div>
                 </div>
             </section>
         {% else %}
