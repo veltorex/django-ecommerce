@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
+from django.db.models import F, ExpressionWrapper, DecimalField, Sum
+from decimal import Decimal
 from .models import Cart, CartItem
 
 # Create your views here.
@@ -13,7 +15,20 @@ def cart_view(request):
     )
 
     # Get cart items
-    cart_items = cart.items.select_related("product")
+    cart_items = cart.items.select_related("product").annotate(
+        subtotal=ExpressionWrapper(
+            F("quantity") * F("product__price"),
+            output_field=DecimalField(
+                max_digits=12,
+                decimal_places=2,
+            ),
+        )
+    )
+
+    # Compute total
+    total = cart_items.aggregate(
+        total=Sum("subtotal"),
+    )["total"] or Decimal("0")
 
     # Render template
     return render(
@@ -21,6 +36,7 @@ def cart_view(request):
         "cart/cart.html",
         {
             "cart_items": cart_items,
+            "total": total
         },
     )
 
