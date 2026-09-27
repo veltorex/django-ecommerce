@@ -137,7 +137,7 @@
     border-radius: 7px;
 
     background: transparent;
-    color: var(--color-muted);
+    color: var(--color-danger);
 
     font-size: 13px;
     font-weight: 600;
