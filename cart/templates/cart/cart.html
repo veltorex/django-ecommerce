@@ -37,7 +37,7 @@
                                 </p>
                             </div>
                             <div class="cart-item-actions">
-                                {% include "components/cart-actions.html" %}
+                                {% include "components/cart-actions.html" with product=item.product item=item %}
                             </div>
                         </article>
                     {% endfor %}
