@@ -1,7 +1,7 @@
 <div class="action-button">
-    {% if item.quantity == 0 %}
+    {% if not item %}
         <!-- Add to cart -->
-        <form action="{% url 'cart:add' item.product.id %}" method="post">
+        <form action="{% url 'cart:add' product.id %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="quantity" value="1">
             <button type="submit">Add to cart</button>
