@@ -122,6 +122,16 @@
 
 /* Responsive */
 
+@media (max-width: 900px) {
+    .navbar__links {
+        gap: 0 !important;
+    }
+
+    .navbar__link {
+        padding: 8px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         height: 60px;

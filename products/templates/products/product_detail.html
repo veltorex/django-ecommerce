@@ -41,6 +41,7 @@
         <p class="product__description">{{ product.description }}</p>
         <div class="product__purchase">
             <span class="product__price">{{ product.price }}$</span>
+            {% include "components/cart-actions.html" with product=product item=cart_item %}
         </div>
     </article>
 </main>

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Shopping Cart{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'cart/cart.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <main class="cart-page">
+        <header class="cart-header">
+            <h1>Shopping Cart</h1>
+
+            {% if cart_items %}
+                <p class="cart-description">
+                    Review the products in your shopping cart.
+                </p>
+            {% endif %}
+        </header>
+
+        {% if cart_items %}
+            <section class="cart-content" aria-label="Shopping cart items">
+                <div class="cart-items">
+                    {% for item in cart_items %}
+                        <article class="cart-item">
+                            <div class="cart-item-info">
+                                <h2 class="cart-item-title">
+                                    {{ item.product.title }}
+                                </h2>
+
+                                <p class="cart-item-price">
+                                    <span class="visually-hidden">
+                                        Price:
+                                    </span>
+                                    {{ item.product.price }}
+                                </p>
+                            </div>
+                            <div class="cart-item-actions">
+                                {% include "components/cart-actions.html" with product=item.product item=item %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                <div class="cart-summary">
+                    {% for item in cart_items %}
+                        <div class="cart-summary-item">
+                            <p class="cart-summary-item-name">
+                                {{ item.product.title|truncatechars:30 }}
+                            </p>
+
+                            <p class="cart-summary-item-subtotal">
+                                {{ item.subtotal }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="cart-summary-total">
+                        <span>Total</span>
+                        <strong>{{ total }}</strong>
+                    </div>
+                </div>
+            </section>
+        {% else %}
+            <section class="empty-cart" aria-labelledby="empty-cart-title">
+                <h2 id="empty-cart-title">Your cart is empty</h2>
+
+                <p>
+                    You have no products in your shopping cart yet.
+                </p>
+
+                <a href="{% url 'products:product-list' %}" class="continue-shopping">
+                    Continue shopping
+                </a>
+            </section>
+        {% endif %}
+    </main>
+{% endblock content %}

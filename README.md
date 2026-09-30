@@ -16,6 +16,7 @@ A simple e-commerce web application built with Django.
 - Address management
 - Pagination
 - Automated testing
+- Shopping cart
 
 ## Technologies
 
@@ -101,7 +102,6 @@ Do not commit your `.env` file to the repository.
 ## Future Improvements
 
 - User favorites
-- Shopping cart
 - Order management
 - Add product reviews and ratings
 - Add order status tracking
@@ -109,7 +109,6 @@ Do not commit your `.env` file to the repository.
 - Improve product recommendations
 - Add advanced filtering
 - Improve UI/UX
-- Deploy the application
 
 ## Testing
 

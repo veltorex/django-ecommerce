@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import Product, Category
+from cart.models import Cart, CartItem
 from .forms import ProductImageFormSet, ProductForm
 from .filters import filter_products
 
@@ -52,13 +53,22 @@ def product_list(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    
+
+    cart_item = None
+
+    if request.user.is_authenticated:
+        cart_item = CartItem.objects.filter(
+            cart__user=request.user,
+            product=product,
+        ).first()
+
     return render(
         request,
         "products/product_detail.html",
         {
             "product": product,
-        }
+            "cart_item": cart_item,
+        },
     )
     
 def product_create(request):
