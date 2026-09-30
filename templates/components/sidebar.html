@@ -7,7 +7,7 @@
     <nav class="sidebar__nav">
         <ul class="sidebar__items">
             <li class="sidebar__item">
-                <a href="#">Home</a>
+                <a href="{% url 'products:product-list' %}">Home</a>
             </li>
 
             <li class="sidebar__item">
@@ -15,19 +15,11 @@
             </li>
 
             <li class="sidebar__item">
-                <a href="#">Categories</a>
+                <a href="{% url 'cart:cart' %}">Cart</a>
             </li>
 
             <li class="sidebar__item">
-                <a href="#">Cart</a>
-            </li>
-
-            <li class="sidebar__item">
-                <a href="#">Orders</a>
-            </li>
-
-            <li class="sidebar__item">
-                <a href="#">Profile</a>
+                <a href="{% url 'profile' %}">Profile</a>
             </li>
         </ul>
     </nav>
