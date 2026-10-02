@@ -109,12 +109,12 @@
     .search-container .search {
         display: block !important;
     }
-}
-@media (max-width: 600px) {
+
     .filter-sidebar {
         display: none;
     }
-    
+}
+@media (max-width: 600px) {
     .product-list {
         width: calc(100% - 24px);
         padding: 32px 0;
