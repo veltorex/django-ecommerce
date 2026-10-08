@@ -11,7 +11,17 @@
 </div>
 
 <div class="mobile-filters hidden">
-    {% include "components/filter-sidebar.html" %}
+    <div class="mobile-filters-section">
+        <button
+            type="button"
+            class="mobile-filters__close"
+            aria-label="Close filters"
+        >
+            ×
+        </button>
+
+        {% include "components/filter-sidebar.html" %}
+    </div>
 </div>
 
 <main class="product-list">
