@@ -9,7 +9,30 @@
 <div class="search-container">
     {% include 'components/search-bar.html' %}
 </div>
+
+<div class="mobile-filters hidden">
+    <div class="mobile-filters-section">
+        <button
+            type="button"
+            class="mobile-filters__close"
+            aria-label="Close filters"
+        >
+            ×
+        </button>
+
+        {% include "components/filter-sidebar.html" %}
+    </div>
+</div>
+
 <main class="product-list">
+    <button
+        type="button"
+        class="product-list__open-filters-list"
+        aria-label="Open filters"
+    >
+        Filter
+    </button>
+
     <h1 class="product-list__title">Products</h1>
 
     <div class="product-list__layout">
@@ -55,3 +78,7 @@
     {% endif %}
 </main>
 {% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'products/js/product_list.js' %}" defer></script>
+{% endblock javascript %}
