@@ -17,6 +17,7 @@ A simple e-commerce web application built with Django.
 - Pagination
 - Automated testing
 - Shopping cart
+- Product filtering for mobile
 
 ## Technologies
 
@@ -106,9 +107,6 @@ Do not commit your `.env` file to the repository.
 - Add product reviews and ratings
 - Add order status tracking
 - Add email notifications
-- Improve product recommendations
-- Add advanced filtering
-- Improve UI/UX
 
 ## Testing
 
